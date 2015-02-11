@@ -46,7 +46,6 @@ local.properties
 [Dd]ebug/
 [Rr]elease/
 x64/
-build/
 [Bb]in/
 [Oo]bj/
 
@@ -192,25 +191,6 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
-
-
-#############
-## Python
-#############
-
-*.py[co]
-
-# Packages
-*.egg
-*.egg-info
-dist/
-build/
-eggs/
-parts/
-var/
-sdist/
-develop-eggs/
-.installed.cfg
 
 # Installer logs
 pip-log.txt
