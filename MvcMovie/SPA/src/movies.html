@@ -1,6 +1,11 @@
 <template>
   <section>
       <h2>${heading}</h2>
+
+      <form submit.delegate="addMovie()">
+          <input id="new-movie" placeholder="Enter title here" autofocus value.bind="newMovieTitle">
+      </form>
+
       <div repeat.for="item of items">
         <p>${item.Title}</p>
       </div>
