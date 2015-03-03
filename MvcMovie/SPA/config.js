@@ -19,6 +19,7 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.2",
     "breeze": "npm:breeze-client@1.5.4",
     "font-awesome": "npm:font-awesome@4.3.0",
+    "moment": "npm:moment@2.9.0",
     "github:aurelia/binding@0.3.4": {
       "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.4.2",
       "aurelia-metadata": "github:aurelia/metadata@0.3.1",
@@ -116,6 +117,9 @@ System.config({
       "jquery": "github:components/jquery@2.1.3"
     },
     "npm:core-js@0.4.10": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:moment@2.9.0": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     }
   }

@@ -3,34 +3,15 @@ import {MoviesDataModel} from './models/movies-data-model'
 
 var logger = LogManager.getLogger('movies-vm');
 
-export class Todos
+export class Movies
 {
   static inject() { return [MoviesDataModel]; }
   constructor(moviesDataModel)
   {
     this.moviesDataModel = moviesDataModel;
     this.items = [];
-    this.heading = "MVC Movies Aurelia";
+    this.heading = "MVC Movies Aurelia Index";
     this.newMovieTitle = "";
-  }
-
-  addMovie()
-  {
-    if (this.newMovieTitle == '')
-      return;
-
-    this.moviesDataModel.createMovie({
-                                  Title: this.newMovieTitle,
-                                  Genre: 'Unknown',
-                                  Price: 3.99,
-                                  ReleaseDate: new Date(),
-                                });
-
-    this.newMovieTitle = '';
-    this.moviesDataModel.saveChanges().then(()=>
-      {
-        this.getMovies();
-      });
   }
 
   getMovies()

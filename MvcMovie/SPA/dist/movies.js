@@ -1,7 +1,7 @@
 System.register(["aurelia-framework", "./models/movies-data-model"], function (_export) {
   "use strict";
 
-  var LogManager, MoviesDataModel, _prototypeProperties, _classCallCheck, logger, Todos;
+  var LogManager, MoviesDataModel, _prototypeProperties, _classCallCheck, logger, Movies;
   return {
     setters: [function (_aureliaFramework) {
       LogManager = _aureliaFramework.LogManager;
@@ -14,17 +14,17 @@ System.register(["aurelia-framework", "./models/movies-data-model"], function (_
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
       logger = LogManager.getLogger("movies-vm");
-      Todos = _export("Todos", (function () {
-        function Todos(moviesDataModel) {
-          _classCallCheck(this, Todos);
+      Movies = _export("Movies", (function () {
+        function Movies(moviesDataModel) {
+          _classCallCheck(this, Movies);
 
           this.moviesDataModel = moviesDataModel;
           this.items = [];
-          this.heading = "MVC Movies Aurelia";
+          this.heading = "MVC Movies Aurelia Index";
           this.newMovieTitle = "";
         }
 
-        _prototypeProperties(Todos, {
+        _prototypeProperties(Movies, {
           inject: {
             value: function inject() {
               return [MoviesDataModel];
@@ -33,25 +33,6 @@ System.register(["aurelia-framework", "./models/movies-data-model"], function (_
             configurable: true
           }
         }, {
-          addMovie: {
-            value: function addMovie() {
-              var _this = this;
-              if (this.newMovieTitle == "") return;
-
-              this.moviesDataModel.createMovie({
-                Title: this.newMovieTitle,
-                Genre: "Unknown",
-                Price: 3.99,
-                ReleaseDate: new Date() });
-
-              this.newMovieTitle = "";
-              this.moviesDataModel.saveChanges().then(function () {
-                _this.getMovies();
-              });
-            },
-            writable: true,
-            configurable: true
-          },
           getMovies: {
             value: function getMovies() {
               var _this = this;
@@ -75,9 +56,9 @@ System.register(["aurelia-framework", "./models/movies-data-model"], function (_
           }
         });
 
-        return Todos;
+        return Movies;
       })());
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1vdmllcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7TUFBUSxVQUFVLEVBQ1YsZUFBZSx5Q0FFbkIsTUFBTSxFQUVHLEtBQUs7OztBQUxWLGdCQUFVLHFCQUFWLFVBQVU7O0FBQ1YscUJBQWUsMEJBQWYsZUFBZTs7Ozs7OztBQUVuQixZQUFNLEdBQUcsVUFBVSxDQUFDLFNBQVMsQ0FBQyxXQUFXLENBQUM7QUFFakMsV0FBSztBQUdMLGlCQUhBLEtBQUssQ0FHSixlQUFlO2dDQUhoQixLQUFLOztBQUtkLGNBQUksQ0FBQyxlQUFlLEdBQUcsZUFBZSxDQUFDO0FBQ3ZDLGNBQUksQ0FBQyxLQUFLLEdBQUcsRUFBRSxDQUFDO0FBQ2hCLGNBQUksQ0FBQyxPQUFPLEdBQUcsb0JBQW9CLENBQUM7QUFDcEMsY0FBSSxDQUFDLGFBQWEsR0FBRyxFQUFFLENBQUM7U0FDekI7OzZCQVRVLEtBQUs7QUFFVCxnQkFBTTttQkFBQSxrQkFBRztBQUFFLHFCQUFPLENBQUMsZUFBZSxDQUFDLENBQUM7YUFBRTs7Ozs7QUFTN0Msa0JBQVE7bUJBQUEsb0JBQ1I7O0FBQ0Usa0JBQUksSUFBSSxDQUFDLGFBQWEsSUFBSSxFQUFFLEVBQzFCLE9BQU87O0FBRVQsa0JBQUksQ0FBQyxlQUFlLENBQUMsV0FBVyxDQUFDO0FBQ0gscUJBQUssRUFBRSxJQUFJLENBQUMsYUFBYTtBQUN6QixxQkFBSyxFQUFFLFNBQVM7QUFDaEIscUJBQUssRUFBRSxJQUFJO0FBQ1gsMkJBQVcsRUFBRSxJQUFJLElBQUksRUFBRSxFQUN4QixDQUFDLENBQUM7O0FBRS9CLGtCQUFJLENBQUMsYUFBYSxHQUFHLEVBQUUsQ0FBQztBQUN4QixrQkFBSSxDQUFDLGVBQWUsQ0FBQyxXQUFXLEVBQUUsQ0FBQyxJQUFJLENBQUMsWUFDdEM7QUFDRSxzQkFBSyxTQUFTLEVBQUUsQ0FBQztlQUNsQixDQUFDLENBQUM7YUFDTjs7OztBQUVELG1CQUFTO21CQUFBLHFCQUNUOztBQUNFLHFCQUFPLElBQUksQ0FBQyxlQUFlLENBQUMsU0FBUyxFQUFFLENBQ3BDLElBQUksQ0FDSCxVQUFBLElBQUksRUFDSjtBQUNFLHNCQUFNLENBQUMsSUFBSSxDQUFDLGdCQUFnQixDQUFDLENBQUM7QUFDOUIsc0JBQUssS0FBSyxHQUFHLElBQUksQ0FBQyxPQUFPLENBQUM7QUFDMUIsc0JBQU0sQ0FBQyxJQUFJLENBQUMsaUJBQWlCLEdBQUcsTUFBSyxLQUFLLENBQUMsTUFBTSxDQUFDLENBQUE7ZUFDbkQsQ0FBQyxTQUNFLENBQ0osVUFBQSxLQUFLLEVBQ0w7QUFDRSxzQkFBTSxDQUFDLEtBQUssQ0FBQyxLQUFLLENBQUMsT0FBTyxFQUFFLGNBQWMsQ0FBQyxDQUFDO2VBQzdDLENBQUMsQ0FBQzthQUNSOzs7O0FBRUQsa0JBQVE7bUJBQUEsb0JBQ1I7QUFDRSxxQkFBTyxJQUFJLENBQUMsU0FBUyxFQUFFLENBQUM7YUFDekI7Ozs7OztlQWxEVSxLQUFLIiwiZmlsZSI6Im1vdmllcy5qcyIsInNvdXJjZVJvb3QiOiIvc3JjLyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1vdmllcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7TUFBUSxVQUFVLEVBQ1YsZUFBZSx5Q0FFbkIsTUFBTSxFQUVHLE1BQU07OztBQUxYLGdCQUFVLHFCQUFWLFVBQVU7O0FBQ1YscUJBQWUsMEJBQWYsZUFBZTs7Ozs7OztBQUVuQixZQUFNLEdBQUcsVUFBVSxDQUFDLFNBQVMsQ0FBQyxXQUFXLENBQUM7QUFFakMsWUFBTTtBQUdOLGlCQUhBLE1BQU0sQ0FHTCxlQUFlO2dDQUhoQixNQUFNOztBQUtmLGNBQUksQ0FBQyxlQUFlLEdBQUcsZUFBZSxDQUFDO0FBQ3ZDLGNBQUksQ0FBQyxLQUFLLEdBQUcsRUFBRSxDQUFDO0FBQ2hCLGNBQUksQ0FBQyxPQUFPLEdBQUcsMEJBQTBCLENBQUM7QUFDMUMsY0FBSSxDQUFDLGFBQWEsR0FBRyxFQUFFLENBQUM7U0FDekI7OzZCQVRVLE1BQU07QUFFVixnQkFBTTttQkFBQSxrQkFBRztBQUFFLHFCQUFPLENBQUMsZUFBZSxDQUFDLENBQUM7YUFBRTs7Ozs7QUFTN0MsbUJBQVM7bUJBQUEscUJBQ1Q7O0FBQ0UscUJBQU8sSUFBSSxDQUFDLGVBQWUsQ0FBQyxTQUFTLEVBQUUsQ0FDcEMsSUFBSSxDQUNILFVBQUEsSUFBSSxFQUNKO0FBQ0Usc0JBQU0sQ0FBQyxJQUFJLENBQUMsZ0JBQWdCLENBQUMsQ0FBQztBQUM5QixzQkFBSyxLQUFLLEdBQUcsSUFBSSxDQUFDLE9BQU8sQ0FBQztBQUMxQixzQkFBTSxDQUFDLElBQUksQ0FBQyxpQkFBaUIsR0FBRyxNQUFLLEtBQUssQ0FBQyxNQUFNLENBQUMsQ0FBQTtlQUNuRCxDQUFDLFNBQ0UsQ0FDSixVQUFBLEtBQUssRUFDTDtBQUNFLHNCQUFNLENBQUMsS0FBSyxDQUFDLEtBQUssQ0FBQyxPQUFPLEVBQUUsY0FBYyxDQUFDLENBQUM7ZUFDN0MsQ0FBQyxDQUFDO2FBQ1I7Ozs7QUFFRCxrQkFBUTttQkFBQSxvQkFDUjtBQUNFLHFCQUFPLElBQUksQ0FBQyxTQUFTLEVBQUUsQ0FBQzthQUN6Qjs7Ozs7O2VBL0JVLE1BQU0iLCJmaWxlIjoibW92aWVzLmpzIiwic291cmNlUm9vdCI6Ii9zcmMvIn0=

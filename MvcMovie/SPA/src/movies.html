@@ -1,13 +1,48 @@
 <template>
+  <import from="../resources/date-format"></import>
   <section>
-      <h2>${heading}</h2>
+    <h2>${heading}</h2>
+    <table class="table">
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Release Date
+        </th>
+        <th>
+          Genre
+        </th>
+        <th>
+          Price
+        </th>
+        <th>
+          Rating
+        </th>
 
-      <form submit.delegate="addMovie()">
-          <input id="new-movie" placeholder="Enter title here" autofocus value.bind="newMovieTitle">
-      </form>
+        <th></th>
+      </tr>
 
-      <div repeat.for="item of items">
-        <p>${item.Title}</p>
-      </div>
+      <tr repeat.for="item of items">
+        <td>
+          ${item.Title}
+        </td>
+        <td>
+          ${item.ReleaseDate  | dateFormat:'YYYY-MM-DD'}
+        </td>
+        <td>
+          ${item.Genre}
+        </td>
+        <td>
+          ${item.Price}
+        </td>
+        <td>
+          ${item.Rating}
+        </td>
+
+        <td>
+        </td>
+      </tr>
+    </table>
   </section>
 </template>

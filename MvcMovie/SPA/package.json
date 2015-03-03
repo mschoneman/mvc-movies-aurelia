@@ -54,7 +54,11 @@
       "aurelia-router": "^0.5.1",
       "bootstrap": "^3.3.1",
       "breeze": "^1.5.4",
-      "font-awesome": "^4.2.0"
+      "font-awesome": "^4.2.0",
+      "moment": "npm:moment@^2.9.0"
     }
+  },
+  "dependencies": {
+    "moment": "^2.9.0"
   }
 }
