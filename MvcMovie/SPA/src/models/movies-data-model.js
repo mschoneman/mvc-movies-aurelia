@@ -20,6 +20,16 @@ export class MoviesDataModel
     return this.entityManager.executeQuery(query);
   }
 
+  getMovieByID(id)
+  {
+    logger.info("getting by id");
+    var query = breeze.EntityQuery
+      .from("Movies")
+      .where("ID","==",id);
+
+    return this.entityManager.executeQuery(query);
+  }
+
   createMovie(initialValues)
   {
     return this.entityManager.createEntity("Movie", initialValues);

@@ -1,0 +1,50 @@
+<template>
+
+  <section>
+    <h2>Details</h2>
+    <div>
+    <h4>Movie</h4>
+    <hr/>
+      <dl class="dl-horizontal">
+
+        <dt>
+          Title
+        </dt>
+        <dd>
+          ${movie.Title}
+        </dd>
+
+        <dt>
+          Release Date
+        </dt>
+        <dd>
+          ${movie.ReleaseDate | dateFormat: 'YYYY-MM-DD'}
+        </dd>
+
+        <dt>
+          Genre
+        </dt>
+        <dd>
+          ${movie.Genre}
+        </dd>
+
+        <dt>
+          Price
+        </dt>
+        <dd>
+          ${movie.Price | numberFormat: '$0.00'}
+        </dd>
+
+        <dd>
+          ${movie.Rating}
+        </dd>
+
+      </dl>
+    </div>
+    <div>
+      <a href="#/movies/edit/${movie.ID}">Edit</a>
+      |
+      <a href="#/movies">Back to List</a>
+    </div>
+  </section>
+</template>

@@ -1,12 +1,13 @@
 System.register(["aurelia-framework"], function (_export) {
-  "use strict";
-
   var Behavior, _prototypeProperties, _classCallCheck, NavBar;
+
   return {
     setters: [function (_aureliaFramework) {
       Behavior = _aureliaFramework.Behavior;
     }],
     execute: function () {
+      "use strict";
+
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
@@ -31,4 +32,4 @@ System.register(["aurelia-framework"], function (_export) {
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5hdi1iYXIuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O01BQVEsUUFBUSx5Q0FFSCxNQUFNOzs7QUFGWCxjQUFRLHFCQUFSLFFBQVE7Ozs7Ozs7QUFFSCxZQUFNO2lCQUFOLE1BQU07Z0NBQU4sTUFBTTs7OzZCQUFOLE1BQU07QUFDVixrQkFBUTttQkFBQSxvQkFBRTtBQUFFLHFCQUFPLFFBQVEsQ0FBQyxZQUFZLENBQUMsUUFBUSxDQUFDLENBQUM7YUFBRTs7Ozs7O2VBRGpELE1BQU0iLCJmaWxlIjoibmF2LWJhci5qcyIsInNvdXJjZVJvb3QiOiIvc3JjLyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5hdi1iYXIuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtNQUFRLFFBQVEseUNBRUgsTUFBTTs7OztBQUZYLGNBQVEscUJBQVIsUUFBUTs7Ozs7Ozs7O0FBRUgsWUFBTTtpQkFBTixNQUFNO2dDQUFOLE1BQU07Ozs2QkFBTixNQUFNO0FBQ1Ysa0JBQVE7bUJBQUEsb0JBQUU7QUFBRSxxQkFBTyxRQUFRLENBQUMsWUFBWSxDQUFDLFFBQVEsQ0FBQyxDQUFDO2FBQUU7Ozs7OztlQURqRCxNQUFNIiwiZmlsZSI6Im5hdi1iYXIuanMiLCJzb3VyY2VSb290IjoiL3NyYy8ifQ==

@@ -11,7 +11,9 @@ export function configure(aurelia)
     .defaultResources()
     .router()
     .eventAggregator()
-    .plugin('aurelia-breeze');
+    .plugin('aurelia-breeze')
+    .plugin('./resources/index') // install our app's resources
+  ;
 
   aurelia.start().then(a => a.setRoot('app', document.body));
 }

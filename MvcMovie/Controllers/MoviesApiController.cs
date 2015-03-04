@@ -32,7 +32,7 @@ namespace MvcMovie.Controllers
             return _contextProvider.Context.Movies;
         }
 
-        // ~/breeze/fooitems/SaveChanges
+        // ~/breeze/MovieApi/SaveChanges
         [HttpPost]
         public SaveResult SaveChanges(JObject saveBundle)
         {

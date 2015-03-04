@@ -1,0 +1,55 @@
+<template>
+
+  <section>
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+
+    <div>
+      <h4>Movie</h4>
+      <hr/>
+      <dl class="dl-horizontal">
+
+        <dt>
+          Title
+        </dt>
+        <dd>
+          ${movie.Title}
+        </dd>
+
+        <dt>
+          Release Date
+        </dt>
+        <dd>
+          ${movie.ReleaseDate | dateFormat: 'YYYY-MM-DD'}
+        </dd>
+
+        <dt>
+          Genre
+        </dt>
+        <dd>
+          ${movie.Genre}
+        </dd>
+
+        <dt>
+          Price
+        </dt>
+        <dd>
+          ${movie.Price | numberFormat: '$0.00'}
+        </dd>
+
+        <dd>
+          ${movie.Rating}
+        </dd>
+
+      </dl>
+      <form submit.delegate="delete()">
+        <div class="form-actions no-color">
+          <button type="submit" class="btn btn-default">Delete</button>
+          |
+          <a href="#/movies">Back to List</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</template>

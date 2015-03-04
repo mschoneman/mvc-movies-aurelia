@@ -1,7 +1,23 @@
 <template>
-  <import from="../resources/date-format"></import>
+
   <section>
     <h2>${heading}</h2>
+
+    <p>
+      <a href="#/movies/create">Create New</a>
+    <p>
+    <form role="form" submit.delegate="filter()">
+      Genre:
+      <select value.bind="selectedGenre">
+        <option value="">All</option>
+        <option repeat.for="genre of genres" value.bind="genre">${genre}</option>
+      </select>
+      Title:
+      <input type="text" value.bind="searchString"/>
+      <button type="submit">Filter</button>
+    </form>
+    </p>
+    </p>
     <table class="table">
       <tr>
         <th>
@@ -28,19 +44,24 @@
           ${item.Title}
         </td>
         <td>
-          ${item.ReleaseDate  | dateFormat:'YYYY-MM-DD'}
+          ${item.ReleaseDate | dateFormat:'YYYY-MM-DD'}
         </td>
         <td>
           ${item.Genre}
         </td>
         <td>
-          ${item.Price}
+          ${item.Price | numberFormat:'$0,0.00'}
         </td>
         <td>
           ${item.Rating}
         </td>
 
         <td>
+          <a href="#/movies/edit/${item.ID}">Edit</a>
+          |
+          <a href="#/movies/details/${item.ID}">Details</a>
+          |
+          <a href="#/movies/delete/${item.ID}">Delete</a>
         </td>
       </tr>
     </table>
