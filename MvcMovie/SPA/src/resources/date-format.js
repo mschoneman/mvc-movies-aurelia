@@ -7,12 +7,8 @@ export class DateFormatValueConverter
 {
   toView(value, format)
   {
+    logger.info("toView value: " + value);
+    logger.info("toView format" + format);
     return moment(value).format(format);
-  }
-  fromView(value, format)
-  {
-    logger.info("value" + value);
-    logger.info("format" + format);
-    return value;
   }
 }

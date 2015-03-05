@@ -18,7 +18,7 @@
         <div class="form-group">
           <label for="ReleaseDate" class="control-label col-md-2">Release Date</label>
           <div class="col-md-10">
-            <input id="ReleaseDate" type="date" value.bind="movie.ReleaseDate" class="form-control">
+            <input id="ReleaseDate" type="date" value.bind="movie.ReleaseDate | dateFormat: 'YYYY-MM-DD'" class="form-control">
           </div>
         </div>
 
