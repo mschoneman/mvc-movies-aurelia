@@ -11,4 +11,10 @@ export class DateFormatValueConverter
     logger.info("toView format" + format);
     return moment(value).format(format);
   }
+
+  fromView(value)
+  {
+    logger.info("fromView value: " + value);
+    return moment(value).toISOString();
+  }
 }
