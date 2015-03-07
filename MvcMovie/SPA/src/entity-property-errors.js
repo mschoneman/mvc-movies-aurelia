@@ -17,30 +17,29 @@ export class EntityPropertyErrors {
     this.entity = null;
     this.propertyName = null;
     this.unsubKey = null;
-    this.subscribedEntity = null;
   }
 
-  unsubscribe()
+  unsubscribe(subscribedEntity)
   {
-    if (this.subscribedEntity != null)
+    if (subscribedEntity != null)
     {
-      this.subscribedEntity.entityAspect.validationErrorsChanged.unsubscribe(this.unsubKey);
+      subscribedEntity.entityAspect.validationErrorsChanged.unsubscribe(this.unsubKey);
+      logger.info(this.propertyName + ' unsubscribed');
     }
-    this.subscribedEntity = null;
     this.unsubKey = null;
   }
 
-  updateSubscription()
+  updateSubscription(newEntity,oldEntity)
   {
-    this.unsubscribe();
-    if (this.entity == null)
+    this.unsubscribe(oldEntity);
+    if (newEntity == null)
       return;
-    this.subscribedEntity = this.entity;
-    this.unsubKey = this.subscribedEntity.entityAspect.validationErrorsChanged.subscribe(event =>
+    this.unsubKey = newEntity.entityAspect.validationErrorsChanged.subscribe(event =>
                                                                                          {
                                                                                            logger.info('validationErrorsChanged');
                                                                                            this.updateErrors();
                                                                                          });
+    logger.info(this.propertyName + ' subscribed');
   }
 
   updateErrors()
@@ -57,12 +56,12 @@ export class EntityPropertyErrors {
                                                                                                return item.errorMessage
                                                                                              });
     this.hasErrors = this.errorMessages.length != 0;
-    logger.info('updateErrors: hasErrors=' + this.hasErrors);
+    logger.info(this.propertyName + ' updateErrors: hasErrors=' + this.hasErrors);
   }
 
-  entityChanged(newValue)
+  entityChanged(newValue,oldValue)
   {
-    this.updateSubscription();
+    this.updateSubscription(newValue,oldValue);
     this.updateErrors();
   }
 
@@ -73,14 +72,12 @@ export class EntityPropertyErrors {
 
   attached()
   {
-    logger.info('attached');
-    logger.info('entity:' + this.entity);
-    logger.info('propertyName:' + this.propertyName);
+    logger.info(this.propertyName + ' attached');
   }
 
   detached()
   {
-    logger.info('detached');
-    this.unsubscribe();
+    logger.info(this.propertyName + ' detached');
+    this.entity = null;
   }
 }
