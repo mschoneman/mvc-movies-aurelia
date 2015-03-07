@@ -75,9 +75,8 @@ export class MoviesDataModel
               // Let them see the error for a second before rejecting changes
               setTimeout(function () {
                   manager.rejectChanges();
-              }, 1000);
-              throw error; //
-              */
+              }, 1000);*/
+              throw error;
             });
     }
     else

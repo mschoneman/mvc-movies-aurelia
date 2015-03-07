@@ -25,7 +25,11 @@ export class Movies {
             {
               logger.info("Successfully saved changes");
               this.theRouter.navigate("movies");
-            });
+            })
+      .catch((error)=>
+             {
+
+             });
   }
 
 

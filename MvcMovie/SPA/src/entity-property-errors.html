@@ -1,0 +1,5 @@
+<template>
+  <ul show.bind="hasErrors" class="field-validation-error">
+  <li repeat.for="errorMessage of errorMessages">${errorMessage}</li>
+  </ul>
+</template>

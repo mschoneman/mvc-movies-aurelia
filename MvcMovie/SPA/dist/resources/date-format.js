@@ -1,10 +1,8 @@
-System.register(["aurelia-framework", "moment"], function (_export) {
-  var LogManager, moment, _prototypeProperties, _classCallCheck, logger, DateFormatValueConverter;
+System.register(["moment"], function (_export) {
+  var moment, _prototypeProperties, _classCallCheck, DateFormatValueConverter;
 
   return {
-    setters: [function (_aureliaFramework) {
-      LogManager = _aureliaFramework.LogManager;
-    }, function (_moment) {
+    setters: [function (_moment) {
       moment = _moment["default"];
     }],
     execute: function () {
@@ -14,7 +12,6 @@ System.register(["aurelia-framework", "moment"], function (_export) {
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
-      logger = LogManager.getLogger("dateformat");
       DateFormatValueConverter = _export("DateFormatValueConverter", (function () {
         function DateFormatValueConverter() {
           _classCallCheck(this, DateFormatValueConverter);
@@ -23,8 +20,6 @@ System.register(["aurelia-framework", "moment"], function (_export) {
         _prototypeProperties(DateFormatValueConverter, null, {
           toView: {
             value: function toView(value, format) {
-              logger.info("toView value: " + value);
-              logger.info("toView format" + format);
               return moment(value).format(format);
             },
             writable: true,
@@ -32,7 +27,6 @@ System.register(["aurelia-framework", "moment"], function (_export) {
           },
           fromView: {
             value: function fromView(value) {
-              logger.info("fromView value: " + value);
               return moment(value).toISOString();
             },
             writable: true,
@@ -45,4 +39,4 @@ System.register(["aurelia-framework", "moment"], function (_export) {
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlc291cmNlcy9kYXRlLWZvcm1hdC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO01BQVEsVUFBVSxFQUNYLE1BQU0seUNBRVQsTUFBTSxFQUVHLHdCQUF3Qjs7OztBQUw3QixnQkFBVSxxQkFBVixVQUFVOztBQUNYLFlBQU07Ozs7Ozs7OztBQUVULFlBQU0sR0FBRyxVQUFVLENBQUMsU0FBUyxDQUFDLFlBQVksQ0FBQztBQUVsQyw4QkFBd0I7aUJBQXhCLHdCQUF3QjtnQ0FBeEIsd0JBQXdCOzs7NkJBQXhCLHdCQUF3QjtBQUVuQyxnQkFBTTttQkFBQSxnQkFBQyxLQUFLLEVBQUUsTUFBTSxFQUNwQjtBQUNFLG9CQUFNLENBQUMsSUFBSSxDQUFDLGdCQUFnQixHQUFHLEtBQUssQ0FBQyxDQUFDO0FBQ3RDLG9CQUFNLENBQUMsSUFBSSxDQUFDLGVBQWUsR0FBRyxNQUFNLENBQUMsQ0FBQztBQUN0QyxxQkFBTyxNQUFNLENBQUMsS0FBSyxDQUFDLENBQUMsTUFBTSxDQUFDLE1BQU0sQ0FBQyxDQUFDO2FBQ3JDOzs7O0FBRUQsa0JBQVE7bUJBQUEsa0JBQUMsS0FBSyxFQUNkO0FBQ0Usb0JBQU0sQ0FBQyxJQUFJLENBQUMsa0JBQWtCLEdBQUcsS0FBSyxDQUFDLENBQUM7QUFDeEMscUJBQU8sTUFBTSxDQUFDLEtBQUssQ0FBQyxDQUFDLFdBQVcsRUFBRSxDQUFDO2FBQ3BDOzs7Ozs7ZUFiVSx3QkFBd0IiLCJmaWxlIjoicmVzb3VyY2VzL2RhdGUtZm9ybWF0LmpzIiwic291cmNlUm9vdCI6Ii9zcmMvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlc291cmNlcy9kYXRlLWZvcm1hdC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO01BQU8sTUFBTSx5Q0FFQSx3QkFBd0I7Ozs7QUFGOUIsWUFBTTs7Ozs7Ozs7O0FBRUEsOEJBQXdCO2lCQUF4Qix3QkFBd0I7Z0NBQXhCLHdCQUF3Qjs7OzZCQUF4Qix3QkFBd0I7QUFFbkMsZ0JBQU07bUJBQUEsZ0JBQUMsS0FBSyxFQUFFLE1BQU0sRUFDcEI7QUFDRSxxQkFBTyxNQUFNLENBQUMsS0FBSyxDQUFDLENBQUMsTUFBTSxDQUFDLE1BQU0sQ0FBQyxDQUFDO2FBQ3JDOzs7O0FBRUQsa0JBQVE7bUJBQUEsa0JBQUMsS0FBSyxFQUNkO0FBQ0UscUJBQU8sTUFBTSxDQUFDLEtBQUssQ0FBQyxDQUFDLFdBQVcsRUFBRSxDQUFDO2FBQ3BDOzs7Ozs7ZUFWVSx3QkFBd0IiLCJmaWxlIjoicmVzb3VyY2VzL2RhdGUtZm9ybWF0LmpzIiwic291cmNlUm9vdCI6Ii9zcmMvIn0=

@@ -1,4 +1,5 @@
 <template>
+  <import from='./entity-property-errors'></import>
 
   <section>
     <h2>Edit</h2>
@@ -11,35 +12,40 @@
         <div class="form-group">
           <label for="Title" class="control-label col-md-2">Title</label>
           <div class="col-md-10">
-            <input id="Title" type="text" value.bind="movie.Title" class="form-control" placeholder="Title">
+            <input id="Title" type="text" value.bind="movie.Title" class="form-control ${TitleErrors.hasErrors ? 'input-validation-error' : ''}">
+            <entity-property-errors ref.view-model="TitleErrors" entity.bind="movie" property-name="Title"></entity-property-errors>
           </div>
         </div>
 
         <div class="form-group">
           <label for="ReleaseDate" class="control-label col-md-2">Release Date</label>
           <div class="col-md-10">
-            <input id="ReleaseDate" type="date" value.bind="movie.ReleaseDate | dateFormat: 'YYYY-MM-DD'" class="form-control">
+            <input id="ReleaseDate" type="date" value.bind="movie.ReleaseDate | dateFormat: 'YYYY-MM-DD'" class="form-control ${ReleaseDate.hasErrors ? 'input-validation-error' : ''}">
+            <entity-property-errors ref.view-model="ReleaseDateErrors" entity.bind="movie" property-name="ReleaseDate"></entity-property-errors>
           </div>
         </div>
 
         <div class="form-group">
           <label for="Genre" class="control-label col-md-2">Genre</label>
           <div class="col-md-10">
-            <input id="Genre" type="text" value.bind="movie.Genre" class="form-control" placeholder="Genre">
+            <input id="Genre" type="text" value.bind="movie.Genre" class="form-control ${GenreErrors.hasErrors ? 'input-validation-error' : ''}">
+            <entity-property-errors ref.view-model="GenreErrors" entity.bind="movie" property-name="Genre"></entity-property-errors>
           </div>
         </div>
 
         <div class="form-group">
           <label for="Price" class="control-label col-md-2">Price</label>
           <div class="col-md-10">
-            <input id="Price" type="text" value.bind="movie.Price | numberFormat: '0.00'" class="form-control">
+            <input id="Price" type="text" value.bind="movie.Price" class="form-control ${PriceErrors.hasErrors ? 'input-validation-error' : ''}">
+            <entity-property-errors ref.view-model="PriceErrors" entity.bind="movie" property-name="Price"></entity-property-errors>
           </div>
         </div>
 
         <div class="form-group">
           <label for="Rating" class="control-label col-md-2">Rating</label>
           <div class="col-md-10">
-            <input id="Rating" type="text" value.bind="movie.Rating" class="form-control">
+            <input id="Rating" type="text" value.bind="movie.Rating" class="form-control ${RatingErrors.hasErrors ? 'input-validation-error' : ''}">
+            <entity-property-errors ref.view-model="RatingErrors" entity.bind="movie" property-name="Rating"></entity-property-errors>
           </div>
         </div>
 
