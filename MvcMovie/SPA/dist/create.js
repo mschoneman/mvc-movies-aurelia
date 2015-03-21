@@ -1,5 +1,5 @@
 System.register(["aurelia-router", "aurelia-framework", "./models/movies-data-model"], function (_export) {
-  var Router, LogManager, MoviesDataModel, _prototypeProperties, _classCallCheck, logger, Movies;
+  var Router, LogManager, MoviesDataModel, _createClass, _classCallCheck, logger, Movies;
 
   return {
     setters: [function (_aureliaRouter) {
@@ -12,7 +12,7 @@ System.register(["aurelia-router", "aurelia-framework", "./models/movies-data-mo
     execute: function () {
       "use strict";
 
-      _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
+      _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
@@ -32,15 +32,7 @@ System.register(["aurelia-router", "aurelia-framework", "./models/movies-data-mo
           });
         }
 
-        _prototypeProperties(Movies, {
-          inject: {
-            value: function inject() {
-              return [Router, MoviesDataModel];
-            },
-            writable: true,
-            configurable: true
-          }
-        }, {
+        _createClass(Movies, {
           create: {
             value: function create() {
               var _this = this;
@@ -49,9 +41,7 @@ System.register(["aurelia-router", "aurelia-framework", "./models/movies-data-mo
                 logger.info("Successfully saved changes");
                 _this.theRouter.navigate("movies");
               });
-            },
-            writable: true,
-            configurable: true
+            }
           },
           deactivate: {
             value: function deactivate() {
@@ -60,9 +50,13 @@ System.register(["aurelia-router", "aurelia-framework", "./models/movies-data-mo
                 logger.info("Rejecting pending changes");
                 this.movie.entityAspect.rejectChanges();
               }
-            },
-            writable: true,
-            configurable: true
+            }
+          }
+        }, {
+          inject: {
+            value: function inject() {
+              return [Router, MoviesDataModel];
+            }
           }
         });
 
@@ -71,4 +65,4 @@ System.register(["aurelia-router", "aurelia-framework", "./models/movies-data-mo
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNyZWF0ZS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO01BQVEsTUFBTSxFQUNOLFVBQVUsRUFDVixlQUFlLHlDQUVuQixNQUFNLEVBRUcsTUFBTTs7OztBQU5YLFlBQU0sa0JBQU4sTUFBTTs7QUFDTixnQkFBVSxxQkFBVixVQUFVOztBQUNWLHFCQUFlLDBCQUFmLGVBQWU7Ozs7Ozs7OztBQUVuQixZQUFNLEdBQUcsVUFBVSxDQUFDLFNBQVMsQ0FBQyxXQUFXLENBQUM7QUFFakMsWUFBTTtBQU1OLGlCQU5BLE1BQU0sQ0FNTCxNQUFNLEVBQUUsZUFBZTtnQ0FOeEIsTUFBTTs7QUFRZixjQUFJLENBQUMsU0FBUyxHQUFHLE1BQU0sQ0FBQztBQUN4QixjQUFJLENBQUMsZUFBZSxHQUFHLGVBQWUsQ0FBQztBQUN2QyxjQUFJLENBQUMsS0FBSyxHQUFHLElBQUksQ0FBQyxlQUFlLENBQUMsV0FBVyxDQUFDO0FBQ0UsaUJBQUssRUFBRSxvQkFBb0I7QUFDM0IsaUJBQUssRUFBRSxRQUFRO0FBQ2YsaUJBQUssRUFBRSxJQUFJO0FBQ1gsdUJBQVcsRUFBRSxJQUFJLElBQUksRUFBRTtBQUN2QixrQkFBTSxFQUFFLEdBQUc7V0FDWixDQUFDLENBQUM7U0FDbEQ7OzZCQWpCVSxNQUFNO0FBQ1YsZ0JBQU07bUJBQUEsa0JBQ2I7QUFDRSxxQkFBTyxDQUFDLE1BQU0sRUFBRSxlQUFlLENBQUMsQ0FBQzthQUNsQzs7Ozs7QUFlRCxnQkFBTTttQkFBQSxrQkFDTjs7O0FBQ0Usa0JBQUksQ0FBQyxlQUFlLENBQUMsV0FBVyxFQUFFLENBQy9CLElBQUksQ0FBQyxZQUNBO0FBQ0Usc0JBQU0sQ0FBQyxJQUFJLENBQUMsNEJBQTRCLENBQUMsQ0FBQztBQUMxQyxzQkFBSyxTQUFTLENBQUMsUUFBUSxDQUFDLFFBQVEsQ0FBQyxDQUFDO2VBQ25DLENBQUMsQ0FBQzthQUNaOzs7O0FBRUQsb0JBQVU7bUJBQUEsc0JBQ1Y7QUFDRSxvQkFBTSxDQUFDLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxDQUFDO0FBQzlCLGtCQUFJLElBQUksQ0FBQyxLQUFLLENBQUMsWUFBWSxDQUFDLFdBQVcsQ0FBQyx3QkFBd0IsRUFBRSxFQUNsRTtBQUNFLHNCQUFNLENBQUMsSUFBSSxDQUFDLDJCQUEyQixDQUFDLENBQUM7QUFDekMsb0JBQUksQ0FBQyxLQUFLLENBQUMsWUFBWSxDQUFDLGFBQWEsRUFBRSxDQUFDO2VBQ3pDO2FBQ0Y7Ozs7OztlQXJDVSxNQUFNIiwiZmlsZSI6ImNyZWF0ZS5qcyIsInNvdXJjZVJvb3QiOiIvc3JjLyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNyZWF0ZS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO01BQVEsTUFBTSxFQUNOLFVBQVUsRUFDVixlQUFlLGlDQUVuQixNQUFNLEVBRUcsTUFBTTs7OztBQU5YLFlBQU0sa0JBQU4sTUFBTTs7QUFDTixnQkFBVSxxQkFBVixVQUFVOztBQUNWLHFCQUFlLDBCQUFmLGVBQWU7Ozs7Ozs7OztBQUVuQixZQUFNLEdBQUcsVUFBVSxDQUFDLFNBQVMsQ0FBQyxXQUFXLENBQUM7QUFFakMsWUFBTTtBQU1OLGlCQU5BLE1BQU0sQ0FNTCxNQUFNLEVBQUUsZUFBZSxFQUNuQztnQ0FQVyxNQUFNOztBQVFmLGNBQUksQ0FBQyxTQUFTLEdBQUcsTUFBTSxDQUFDO0FBQ3hCLGNBQUksQ0FBQyxlQUFlLEdBQUcsZUFBZSxDQUFDO0FBQ3ZDLGNBQUksQ0FBQyxLQUFLLEdBQUcsSUFBSSxDQUFDLGVBQWUsQ0FBQyxXQUFXLENBQUM7QUFDRSxpQkFBSyxFQUFFLG9CQUFvQjtBQUMzQixpQkFBSyxFQUFFLFFBQVE7QUFDZixpQkFBSyxFQUFFLElBQUk7QUFDWCx1QkFBVyxFQUFFLElBQUksSUFBSSxFQUFFO0FBQ3ZCLGtCQUFNLEVBQUUsR0FBRztXQUNaLENBQUMsQ0FBQztTQUNsRDs7cUJBakJVLE1BQU07QUFtQmpCLGdCQUFNO21CQUFBLGtCQUNOOzs7QUFDRSxrQkFBSSxDQUFDLGVBQWUsQ0FBQyxXQUFXLEVBQUUsQ0FDL0IsSUFBSSxDQUFDLFlBQ0E7QUFDRSxzQkFBTSxDQUFDLElBQUksQ0FBQyw0QkFBNEIsQ0FBQyxDQUFDO0FBQzFDLHNCQUFLLFNBQVMsQ0FBQyxRQUFRLENBQUMsUUFBUSxDQUFDLENBQUM7ZUFDbkMsQ0FBQyxDQUFDO2FBQ1o7O0FBRUQsb0JBQVU7bUJBQUEsc0JBQ1Y7QUFDRSxvQkFBTSxDQUFDLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxDQUFDO0FBQzlCLGtCQUFJLElBQUksQ0FBQyxLQUFLLENBQUMsWUFBWSxDQUFDLFdBQVcsQ0FBQyx3QkFBd0IsRUFBRSxFQUNsRTtBQUNFLHNCQUFNLENBQUMsSUFBSSxDQUFDLDJCQUEyQixDQUFDLENBQUM7QUFDekMsb0JBQUksQ0FBQyxLQUFLLENBQUMsWUFBWSxDQUFDLGFBQWEsRUFBRSxDQUFDO2VBQ3pDO2FBQ0Y7OztBQXBDTSxnQkFBTTttQkFBQSxrQkFDYjtBQUNFLHFCQUFPLENBQUMsTUFBTSxFQUFFLGVBQWUsQ0FBQyxDQUFDO2FBQ2xDOzs7O2VBSlUsTUFBTSIsImZpbGUiOiJjcmVhdGUuanMiLCJzb3VyY2VSb290IjoiL3NyYy8ifQ==

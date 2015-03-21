@@ -1,7 +1,7 @@
 import {LogManager} from 'aurelia-framework';
 import breeze from 'breeze'
 
-var logger = LogManager.getLogger('movies-vm');
+var logger = LogManager.getLogger('movies-data-model');
 
 export class MoviesDataModel
 {
