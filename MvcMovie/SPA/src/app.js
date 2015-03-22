@@ -17,37 +17,51 @@ export class App {
     this.userModel = userModel;
     Object.observe(userModel,changes =>
     {
-      logger.debug("usermodel observed");
+      let rebuildNavRequired = false;
       changes.forEach((change,i)=>
       {
 
         if(change.type === "update" && change.name === "currentUser")
         {
-          logger.debug("matching change found");
-          this.router.reset();
-          this.router.configure(config =>
-          {
-            config.title = 'Logged In';
-            config.map([
-              {route: ['','home'], moduleId: 'welcome', nav: true, title: 'Home'},
-              {route: 'movies', moduleId: 'movies', nav: true, title: 'Movies'},
-              {route: 'movies/create', moduleId: 'create', nav: false, title: 'Create'},
-              {route: 'movies/details/:id', moduleId: 'details', nav: false, title: 'Details'},
-              {route: 'movies/edit/:id', moduleId: 'edit', nav: false, title: 'Edit'},
-              {route: 'movies/delete/:id', moduleId: 'delete', nav: false, title: 'Delete'},
-            ]);
-          });
-          this.router.refreshNavigation();
-          this.router.navigate("home");
+          rebuildNavRequired = true;
+        }
+
+        if(rebuildNavRequired)
+        {
+          this.buildRoutes();
+          this.router.navigate(this.userModel.currentUser != null ? "home" : "login" );
         }
       });
     });
+
+    this.buildRoutes();
+ }
+
+  buildRoutes()
+  {
+    this.router.reset();
     this.router.configure(config =>
     {
-      config.title = 'Aurelia Movie';
-      config.map([
-        {route: [''], moduleId: 'login', nav: false, title: 'Login'},
-      ]);
+      if(this.userModel.currentUser != null)
+      {
+        config.title = 'Logged In';
+        config.map([
+          {route: ['', 'home'], moduleId: 'welcome', nav: true, title: 'Home'},
+          {route: 'movies', moduleId: 'movies', nav: true, title: 'Movies'},
+          {route: 'movies/create', moduleId: 'create', nav: false, title: 'Create'},
+          {route: 'movies/details/:id', moduleId: 'details', nav: false, title: 'Details'},
+          {route: 'movies/edit/:id', moduleId: 'edit', nav: false, title: 'Edit'},
+          {route: 'movies/delete/:id', moduleId: 'delete', nav: false, title: 'Delete'},
+        ]);
+      }
+      else
+      {
+        config.title = 'Aurelia Movie';
+        config.map([
+          {route: ['','login'], moduleId: 'login', nav: false, title: 'Login'},
+        ]);
+      }
     });
+    this.router.refreshNavigation();
   }
 }
