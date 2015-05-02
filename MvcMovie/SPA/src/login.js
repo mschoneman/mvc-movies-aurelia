@@ -14,7 +14,8 @@ export class Login{
 
   login()
   {
-    this.userModel.currentUser = "monkey";
+  setTimeout(()=>{this.userModel.currentUser = "monkey";},500);
+    
   }
 }
 

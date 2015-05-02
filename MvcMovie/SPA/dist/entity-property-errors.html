@@ -1,5 +1,7 @@
 <template>
-  <ul show.bind="hasErrors" class="field-validation-error">
-  <li repeat.for="errorMessage of errorMessages">${errorMessage}</li>
+<div class="alert alert-danger" role="alert" show.bind="hasErrors" >
+  <ul>
+    <li repeat.for="errorMessage of errorMessages">${errorMessage}</li>
   </ul>
+</div>
 </template>

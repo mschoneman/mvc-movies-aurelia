@@ -29,16 +29,16 @@ export class EntityPropertyErrors {
     this.unsubKey = null;
   }
 
-  updateSubscription(newEntity,oldEntity)
+  updateSubscription(newEntity, oldEntity)
   {
     this.unsubscribe(oldEntity);
     if (newEntity == null)
       return;
     this.unsubKey = newEntity.entityAspect.validationErrorsChanged.subscribe(event =>
-                                                                                         {
-                                                                                           logger.info('validationErrorsChanged');
-                                                                                           this.updateErrors();
-                                                                                         });
+                                                                             {
+                                                                               logger.info('validationErrorsChanged');
+                                                                               this.updateErrors();
+                                                                             });
     logger.info(this.propertyName + ' subscribed');
   }
 
@@ -59,9 +59,9 @@ export class EntityPropertyErrors {
     logger.info(this.propertyName + ' updateErrors: hasErrors=' + this.hasErrors);
   }
 
-  entityChanged(newValue,oldValue)
+  entityChanged(newValue, oldValue)
   {
-    this.updateSubscription(newValue,oldValue);
+    this.updateSubscription(newValue, oldValue);
     this.updateErrors();
   }
 

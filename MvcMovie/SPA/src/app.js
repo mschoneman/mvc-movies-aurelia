@@ -29,7 +29,7 @@ export class App {
         if(rebuildNavRequired)
         {
           this.buildRoutes();
-          this.router.navigate(this.userModel.currentUser != null ? "home" : "login" );
+          this.router.navigate(this.userModel.currentUser != null ? "/home" : "/login" );
         }
       });
     });

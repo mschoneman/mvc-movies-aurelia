@@ -1,5 +1,5 @@
 System.register(["numeral"], function (_export) {
-  var numeral, _createClass, _classCallCheck, NumberFormatValueConverter;
+  var numeral, _prototypeProperties, _classCallCheck, NumberFormatValueConverter;
 
   return {
     setters: [function (_numeral) {
@@ -8,7 +8,7 @@ System.register(["numeral"], function (_export) {
     execute: function () {
       "use strict";
 
-      _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+      _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
@@ -17,11 +17,13 @@ System.register(["numeral"], function (_export) {
           _classCallCheck(this, NumberFormatValueConverter);
         }
 
-        _createClass(NumberFormatValueConverter, {
+        _prototypeProperties(NumberFormatValueConverter, null, {
           toView: {
             value: function toView(value, format) {
               return numeral(value).format(format);
-            }
+            },
+            writable: true,
+            configurable: true
           }
         });
 
@@ -30,4 +32,4 @@ System.register(["numeral"], function (_export) {
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlc291cmNlcy9udW1iZXItZm9ybWF0LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7TUFBTyxPQUFPLGlDQUVELDBCQUEwQjs7OztBQUZoQyxhQUFPOzs7Ozs7Ozs7QUFFRCxnQ0FBMEI7aUJBQTFCLDBCQUEwQjtnQ0FBMUIsMEJBQTBCOzs7cUJBQTFCLDBCQUEwQjtBQUNyQyxnQkFBTTttQkFBQSxnQkFBQyxLQUFLLEVBQUUsTUFBTSxFQUFFO0FBQ3BCLHFCQUFPLE9BQU8sQ0FBQyxLQUFLLENBQUMsQ0FBQyxNQUFNLENBQUMsTUFBTSxDQUFDLENBQUM7YUFDdEM7Ozs7ZUFIVSwwQkFBMEIiLCJmaWxlIjoicmVzb3VyY2VzL251bWJlci1mb3JtYXQuanMiLCJzb3VyY2VSb290IjoiL3NyYy8ifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlc291cmNlcy9udW1iZXItZm9ybWF0LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7TUFBTyxPQUFPLHlDQUVELDBCQUEwQjs7OztBQUZoQyxhQUFPOzs7Ozs7Ozs7QUFFRCxnQ0FBMEI7aUJBQTFCLDBCQUEwQjtnQ0FBMUIsMEJBQTBCOzs7NkJBQTFCLDBCQUEwQjtBQUNyQyxnQkFBTTttQkFBQSxnQkFBQyxLQUFLLEVBQUUsTUFBTSxFQUFFO0FBQ3BCLHFCQUFPLE9BQU8sQ0FBQyxLQUFLLENBQUMsQ0FBQyxNQUFNLENBQUMsTUFBTSxDQUFDLENBQUM7YUFDdEM7Ozs7OztlQUhVLDBCQUEwQiIsImZpbGUiOiJyZXNvdXJjZXMvbnVtYmVyLWZvcm1hdC5qcyIsInNvdXJjZVJvb3QiOiIvc3JjLyJ9

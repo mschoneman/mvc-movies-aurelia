@@ -25,9 +25,9 @@
         <li if.bind="userModel.currentUser != null" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Settings</a></li>
+            <li><a href="#/settings/">Settings</a></li>
             <li class="divider"></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="#/logout/">Logout</a></li>
           </ul>
         </li>
         <li class="loader" if.bind="router.isNavigating">
